@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 241222 Where -->
+    <script>function myFstFunc() {
+            document.getElementById("InHead").innerHTML = "Paragraph changed.";
+        }
+    </script>
+    <style>
+        .box {
+            width: 1200px;
+            display: flex;
+            margin: auto;
+        }
+
+        .TextBnt {
+            width: 500px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 241220 Intro -->
+    <!-- 按下按鍵改變字 -->
+    <h2>What Can JavaScript Do?</h2>
+    <h3>241220 Intro</h3>
+    <div class="box">
+        <div class="TextBnt">
+            <p id="MyDemo">JavaScript can change HTML content.</p>
+            <div class="bnts">
+                <!-- 按下按鍵改變字內容 -->
+                <button type="button" onclick='document.getElementById("MyDemo").innerHTML = "Hello JavaScript!"'>Click
+                    Me!</button>
+                <!-- 按下按鍵改變字尺寸 -->
+                <button type="button" onclick="document.getElementById('MyDemo').style.fontSize='35px'"> Change to
+                    35px.</button>
+                <!-- 按下按鍵字隱藏 -->
+                <button id="Disappear"
+                    onclick="document.getElementById('MyDemo').style.display='none';document.getElementById('Appear').style.display='inline'">Disappear</button>
+                <!-- 按下按鍵字出現 -->
+                <button id="Appear" type="button" onclick="document.getElementById('MyDemo').style.display='block'"
+                    style="display:none">bring back</button>
+            </div>
+        </div>
+        <!-- 按下按鍵改變圖片 -->
+        <div class="TextBnt">
+            <h2>按下按鍵改變圖片</h2>
+            <div class="bnts">
+                <button onclick="document.getElementById('kanahei').src='img2.jpg'">企鵝</button>
+                <img id="kanahei" src="img1.png" style="width: 200px;height: 200px;">
+                <button onclick="document.getElementById('kanahei').src='img1.png'">口罩</button>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <!-- 241222 Where -->
+    <h3>241222 Where</h3>
+    <div class="Text">
+        <p id="JS"></p>
+        <script>
+            document.getElementById("JS").innerHTML = "My First JavaScript";
+        </script>
+    </div>
+    <div class="box">
+        <div class="TextBnt">
+            <!-- Script in head, 在內容出現前先載好，但會讓其他內容載入速度變慢 -->
+            <p id="InHead">A Paragraph.</p>
+            <button type="button" onclick="myFstFunc()">Change InHead</button>
+        </div>
+        <div class="TextBnt">
+            <!-- Script in body, 一邊跑內容一邊載,code畫面亂 -->
+            <p id="InBody">The second paragraph.</p>
+            <button type="button" onclick="MySecFunc()">Change InBody</button>
+            <script>
+                function MySecFunc() {
+                    document.getElementById("InBody").innerHTML = "Second Paragraph changed.";
+                }
+            </script>
+        </div>
+        <div class="TextBnt">
+            <!-- Script out of this file -->
+            <!-- External scripts cannot contain <script> tags. -->
+            <p id="ThirdPara">The Third Paragraph</p>
+            <button type="button" onclick="OutFunc()">Change Third Paragraph</button>
+            <script src="OutFunc.js"></script>
+        </div>
+        <div class="TextBnt">
+            <!-- Script with a full URL -->
+            <p id="demo">The Fourth Paragraph.</p>
+            <button type="button" onclick="myFunction()">Change the Fourth Paragraph</button>
+            <script src="https://www.w3schools.com/js/myScript.js"></script>
+        </div>
+        <div class="TextBnt">
+            <!-- Script with a file path -->
+            <p id="FifthPara">The Fifth Paragraph</p>
+            <button type="button" onclick="OutFunc1()">Change the Fifth Paragraph</button>
+            <script src="try/OutFunc1.js"></script>
+        </div>
+    </div>
+
+    <!-- 241223 Output -->
+    <h3>241223 Output</h3>
+    <div class="box">
+        <!-- innerHTML -->
+        <p id="demo23A"></p>
+        <script>document.getElementById("demo23A").innerHTML = 5 + 6</script>
+        <!-- HTML output (Only use document.write for testing!!)-->
+        <script>document.write(5 + 7)</script>
+        <!-- 注意！載好其他內容後按下document.write會取代整個網頁的內容 -->
+        <button type="button" onclick="DeleteAll()">Byebye!</button>
+        <script src="DocumentWrite.js"></script>
+
+        <!-- Alert box: "window"可省略 -->
+        <!-- <script>window.alert("Yeah!")</script> -->
+        <!-- <script>alert("Hello!")</script> -->
+
+        <!-- console.log: debug用 -->
+        <script>
+            console.log("bug");
+        </script>
+
+        <!-- 列印目前頁面 -->
+        <button onclick="window.print()">Print this page.</button>
+    </div>
+
+    <!-- 241224 Statement -->
+    <h3>241224 Statement</h3>
+    <p id="ABC"></p>
+    <script>
+        let a, b, c;
+        a = 10;
+        b = 6;
+        c = a + b;
+        // a = 10;b = 5;c = a + b; 也是可以的
+        // 多的空格或斷句會被忽略，可以加
+        // ;分號不一定要加
+        document.getElementById("ABC").innerHTML =
+            c;
+    </script>
+
+    <!-- 在{}之間的code會被一起執行 -->
+    <button type="button" onclick="twoEvents()">Two Events</button>
+    <p id="Event1"></p>
+    <p id="Event2"></p>
+    <script>
+        function twoEvents() {
+            document.getElementById("Event1").innerHTML = "Event 1";
+            document.getElementById("Event2").innerHTML = "Event 2";
+        }
+    </script>
+
+    <!-- 241225 Syntax -->
+    <h3>241224 Syntax to Variables</h3>
+    <!-- 結合句子 -->
+    <p id="combine"></p>
+    <script>
+        document.getElementById("combine").innerHTML = "Usagi" + "<br>" + "Piske";
+    </script>
+    <!-- A JavaScript name must begin with:
+       A letter (A-Z or a-z), A dollar sign ($), Or an underscore (_). No begin with digit! -->
+    <!-- Hyphens are not allowed in JavaScript naming. -->
+    <!-- Tend to use camel case that starts with a lowercase letter -->
+
+    <!-- 241225 Comments -->
+    <!-- /*Multi-line comments*/ : mostly for formal document -->
+    <!-- //single comments : more common-->
+
+    <!-- 241225 Variables -->
+    <!-- constant values (const) cannot be changed. -->
+    <!-- When to Use var, let, or const?
+     1. Always declare variables
+     2. Always use const if the value should not be changed
+     3. Always use const if the type should not be changed (Arrays and Objects)
+     4. Only use let if you can't use const
+     5. Only use var if you MUST support old browsers. -->
+    <!-- Variables are containers for storing values. -->
+    <!-- the equal sign (=) is an "assignment" operator, not an "equal to" operator(==). -->
+
+    <p id="Car"></p>
+    <script>
+        let carName;
+        document.getElementById("Car").innerHTML = carName;
+    </script>
+
+    <!-- cannot re-declare a variable declared with let or const. 不能清空但可以變內容 -->
+    <p id="test"></p>
+    <script>
+        z = 7;
+        let z = 5;
+        z = z + z;
+        document.getElementById("test").innerHTML = z;
+    </script>
+
+    <p id="number"></p>
+    <script>
+        let x = "5" + 2 + 3;
+        document.getElementById("number").innerHTML = x;
+    </script>
+
+    <p id="number2"></p>
+    <script>
+        let y = 2 + 3 + "5";
+        document.getElementById("number2").innerHTML = y;
+    </script>
+
+    <!-- In jQuery $("p"); means "select all p elements". -->
+    <!-- underscore(_) being the first letter as an alias for "private (hidden)" variables. -->
+
+    <!-- 241229 let -->
+    <h3>241229 let</h3>
+    <!-- 可以在不同scope下declare let，但不能在同一scope時redeclare -->
+    <p id="demoA"></p>
+    <script>
+        let A = 10;
+        {
+            let A = 7;
+        }
+        document.getElementById("demoA").innerHTML = A;
+    </script>
+
+    <!-- Using a let variable before it is declared will result in a ReferenceError -->
+    <p id="demoB"></p>
+    <script>
+        try {
+            B = "Lulu"
+            let B = "Piggy";
+        }
+        catch (err) {
+            document.getElementById("demoB").innerHTML = err;
+        }
+    </script>
+
+    <h3>250112 const</h3>
+    <!-- 
+    1. Variables defined with const cannot be Redeclared. 
+    2. Variables defined with const cannot be Reassigned.
+    3. Variables defined with const have Block Scope.
+    4. const variables must be assigned a value when they are declared.
+    5. Always declare a variable with const when you know that the value should not be changed. 
+       - Use const when you declare: A new Array, A new Object, A new Function, A new RegExp
+       - can NOT reassign a constant value, a constant array, or a constant object
+       - But CAN change the elements of constant array or the properties of constant object
+    6. Using a const variable before it is declared will result in a ReferenceError. -->
+
+    <!-- 改變array內容element -->
+    <p id="demoC"></p>
+
+    <script>
+        // Create an Array
+        const cars = ["Saab", "Volvo", "BMW"];
+        // Change an element
+        cars[0] = "Toyota";
+        // Add an element
+        cars.push("Audi");
+        document.getElementById("demoC").innerHTML = cars;
+    </script>
+
+    <p id="demoD"></p>
+
+    <script>
+        // creat a const object
+        const car = { type: "Fiat", model: "500", color: "white" };
+        // change a property
+        car.color = "red";
+        // add a property
+        car.owner = "Johnson";
+        document.getElementById("demoD").innerHTML = "Car owner is " + car.owner;
+    </script>
+
+    <!-- With var, you can use a variable before it is declared. => Hoisting -->
+    <p id="demoE"></p>
+    <script>
+        carName2 = "Volvo";
+        document.getElementById("demoE").innerHTML = carName2;
+        var carName2;
+    </script>
+
+    <h3>250113 Operators</h3>
+    <!-- Operators: *(Multiplication), ** (Exponentiation指數 since ES2016, 和Math.pow()相同), % (Modulus, Division Remainder 餘數), 
+     ++ (Increment), --	(Decrement)
+     => 若將遞增/減運算子作為後綴（例如 x++），會先回傳原本的值，再進行遞增/減。若作為前綴（例如 ++x），則會先進行遞增/減，再將遞增/減後的結果回傳。
+     x++ 和 x-- 是不需 = 就能回傳的 -->
+    <script>
+        let xA = 3;
+        const yA = xA++;
+        xA++;
+        const zA = xA;
+        console.log(`xA:${xA}, yA:${yA}, zA:${zA}`);
+    </script>
+    <!-- Assignment Operators: x (operator)= y 等同 x = x (operator) y
+     eg. x += y 等同 x = x + y -->
+    <!-- Comparison Operators: == (equal to), === (equal value and equal type), != (not equal), 
+     !== (not equal value or not equal type), > (greater than), <= less than or equal to, ? (ternary operator)-->
+    <!-- Operators on Strings:
+     - 大小於用於String可比較字母順序
+     - +或+=可做為concatenate作用 -->
+    <p id="demoE"></p>
+    <script>
+        let concat = "What a nice ";
+        concat += "day!"
+        document.getElementById("demoE").innerHTML = concat;
+    </script>
+    <!-- Logical Operators: && (logical and), || (logical or), ! (logical not) -->
+    <!-- Type Operators: typeof (Returns the type of a variable), instanceof (Returns true if an object is an instance of an object type) -->
+    <!-- Bitwise Operators (將數字以32 bits形式處理，比較0和1): &, |, ~ (Not), ^ (XOR，兩個位元不同 = 1；相同 = 0), 
+      << (將數字的位元向左移動，並在右邊補零。等效於乘以2的𝑛次方，其中𝑛是移動的位數), 
+      >> (將數字的位元向右移動，正數左邊補零，負數左邊補負號）, 
+      >>> (Unsigned right shift，將數字的位元向右移動，不留正負號位)。
+      Any numeric operand in the operation is converted into a 32 bit number. -->
+
+    <!-- Data Type:
+     - JavaScript has 8 Datatypes: String, Number, Bigint, Boolean, Undefined, Null, Symbol, Object
+     - A JavaScript variable can hold any type of data.
+     - Javascript numbers are always one type: double (64-bit floating point).
+     - Array([內容]) indexes are zero-based.
+     - Object ({內容}) properties are written as name:value pairs -->
+
+    <!-- Function:
+      function name(parameter1, parameter2, parameter3) {
+     // code to be executed
+     } -->
+
+    <p id="demoF"></p>
+    <script>
+        function funcA(p1, p2) {
+            return p1 * p2
+        };
+        document.getElementById("demoF").innerHTML = funcA(3, 4);
+    </script>
+
+    <h3>250114 Objects</h3>
+    <!-- Creat a new object -->
+    <p id="demoG"></p>
+    <script>
+        const usagi = {}; // 也可用 new Object
+        usagi.fstName = "Usagi";
+        usagi.lastName = "Kanahei";
+        usagi.color = "pink";
+        usagi.age = 20;
+        usagi.fullName = function () {
+            // this refers to the person object.
+            // toUpperCase() method to convert a text to uppercase.
+            return (this.fstName + " " + this.lastName).toUpperCase();
+        };
+        // 用delete刪除property
+        delete usagi.color;
+        // Property values in an object can be other objects.
+        usagi.store = { physical: "kiddy land", online: "yuruto shop" };
+        document.getElementById("demoG").innerHTML = usagi.fullName() + "'s color is " + usagi.color
+            + " sold in " + usagi.store.online;
+        // objectName.propertyName 等同 objectName["propertyName"]
+    </script>
+
+    <!-- Changes to a copy of an object will also change the original object: -->
+    <p id="demoH"></p>
+    <script>
+        const piske = { fstName: "Piske", lastName: "Kanahei", animal: "chicken" };
+        const piske2 = piske;
+        piske2.animal = "Bird";
+        document.getElementById("demoH").innerHTML = piske.animal;
+    </script>
+
+    <!-- Display object properties -->
+    <p id="demoI"></p>
+    <p id="demoJ"></p>
+    <script>
+        const person = {
+            name: "John",
+            age: 30,
+            city: "New York"
+        };
+        // 方法一：text
+        let text = "";
+        for (let x in person) {
+            // 不可用person.x，因為x是在loop中
+            text += person[x] + " "
+        }
+        document.getElementById("demoI").innerHTML = text;
+
+        // 方法二：Array
+        const myArray = Object.values(person);
+        document.getElementById("demoJ").innerHTML = myArray;
+    </script>
+
+    <p id="demoK"></p>
+    <p id="demoL"></p>
+    <script>
+        const fruits = { Bananas: 300, Oranges: 200, Apples: 500 };
+        // 方法三：Object.entries()
+        let text2 = "";
+        for (let [fruit, amount] of Object.entries(fruits)) {
+            text2 += fruit + ": " + amount + "<br>";
+        }
+        document.getElementById("demoK").innerHTML = text2;
+        // 方法四：JSON.stringify() => 轉為string
+        document.getElementById("demoL").innerHTML = JSON.stringify(fruits)
+    </script>
+
+    <!-- Object Constructor Functions -->
+    <p id="demoM"></p>
+    <script>
+        // Constructor Function for Person objects
+        function Person(fstNm, lastNm, age) {
+            this.firstName = fstNm;
+            this.lastName = lastNm;
+            this.age = age;
+        }
+        // To add a new property, you must add it to the constructor function "prototype"
+        Person.prototype.eye = "Blue"
+        // Create a Person object
+        const myFather = new Person("John", "Doe", 50);
+        const myMother = new Person("Sally", "Rally", 48);
+        // Add nationality only to the first object
+        myFather.nationality = "English";
+        // Adding a Method to an Object
+        myMother.changeNm = function (name) {
+            this.lastName = name;
+        }
+        myMother.changeNm("Doe"); //Change name
+        document.getElementById("demoM").innerHTML = myFather.age + " " + myFather.nationality + myMother.eye + myMother.age + myMother.lastName;
+    </script>
+
+    <!-- Literals
+     - "" (primitive string), 0 (primitive number), false (primitive boolean) 
+     - {} (object object), [] (array object), /()/ (regexp object), function(){} (function) -->
+
+    <!-- Events -->
+    <button onclick="displayDate()">The time is?</button>
+    <p id="demoN"></p>
+    <script>
+        function displayDate() {
+            document.getElementById("demoN").innerHTML = Date();
+        }
+    </script>
+
+    <h3>250115 Strings</h3>
+    <!-- Templates:
+      - Strings enclosed in backticks (`template string`).
+      - Allowing single and double quotes inside a string.
+      - Allowing multiline strings.
+      - Not supported in IE. -->
+    <!-- text.length => 顯示string字元數 -->
+    <!-- Quoting in string: \' (single quote), \" (double quote), \\ (backslash) -->
+    <!-- Escape sequences: \b	(Backspace), \f (Form Feed 換頁), \n (New Line 換行), 
+       \r (Carriage Return回到行首), \t	(Horizontal Tab), \v (Vertical Tabulator) -->
+    <!-- JavaScript objects cannot be compared (always return false). -->
+    <p id="demoO"></p>
+    <script>
+        let text3 = "ABCDEFGHIJK";
+        document.getElementById("demoO").innerHTML = text3.length + "," + text3.charAt(0) + "," +
+            text3.charCodeAt(0) + "," + text3[2] + "," + text3.slice(2, 4) + "," + text3.slice(-3) + "," +
+            text3.substr(2, 4) + "," + text.concat(text3)
+        /*
+        - at(position) => since ES2022, allowing negative indexes (倒退搜尋)
+        - text3.slice(start,end)不包括end的字元，slice(-3)由右至左數第三個開始往右抓；substr(start,字元數)
+        - 全部大/小寫：toUpperCase(), toLowerCase()
+        - trim() 去除左右空格, trimStart() 去除左側空格（ECMAScript 2019）, trimEnd() 去除右側空格（ECMAScript 2019）
+        - padStart(位數,內容)/padEnd(4,"0") method pads a "string" from the start/end (ECMAScript 2017).
+        - To pad a number, convert the number to a string first (numb.toString()).
+        - repeat(cnt) method returns a string with a number of copies of a string (ES6 feature, JavaScript 2015).
+        - replace("original text","replacing text") method replaces a specified value with another value in a string: 
+          - replaces only the first match. To replace all matches, use replace(/original text/g,"replacing text"). 
+            Or use replaceAll("original text","replacing text")
+          - case sensitive. To replace case insensitive, use replace(/original text/i,"replacing text")
+          - split(",") => Split on commas
+        */
+    </script>
+
+    <!-- String Search
+     - indexOf("string")/lastIndexOf("string") of the first/last occurrence of a string in a string, or it returns -1 if the string is not found
+       => Both methods accept a second parameter as the starting position for the search: 
+          indexOf("string",往右的開始點), lastIndexOf("string", 往左的開始點) 
+     - search("string"): search a string for a string (or a regular expression)
+     - match("string")
+    -->
+     <p id="demoP"></p>
+     <script>
+        let text4 = "The rain in SPAIN stays mainly in the plain";
+        const myArr1 = text4.match("ain");
+        const myArr2 = text4.match(/ain/);
+        // global search
+        const myArr3 = text4.match(/ain/g);
+        // a global, case-insensitive search
+        const myArr4 = text4.match(/ain/gi);
+        document.getElementById("demoP").innerHTML =
+        myArr1.length + " " + myArr1 + "<br>" + myArr2.length + " " + myArr2 + "<br>" +
+        myArr3.length + " " + myArr3 + "<br>" + myArr4.length + " " + myArr4 + "<br>";
+        // matchAll(string/regular expression) returns an iterator containing the results of matching a string against a string (or a regular expression).
+        // includes("string",startpoint) => returning true/false, case sensitive.
+        // startsWith("string",startpoint)/endWith("string",endpoint) => returning true if a string begins/ends with a specified value, case sensitive.
+     </script>
+
+     <!-- Template: Interpolation -->
+      <p id="demoQ"></p>
+      <p id="demoR"></p>
+      <p id="demoS"></p>
+      <script>
+        // 插入string
+        let name1 = "John";
+        let name2 = "Max";
+        // Template Strings: ${}
+        document.getElementById("demoQ").innerHTML = `Welcome ${name1}, ${name2}!`;
+        
+        // 插入運算
+        let price = 10;
+        let VAT = 0.25;
+        document.getElementById("demoQ").innerHTML = `Total: ${price * (1+VAT).toFixed(2)}`;
+
+        // 插入項目標籤
+        let header = "Template Strings";
+        let tags = ["template strings", "javascript", "es6"];
+        let html = `<h2>${header}</h2><ul>`; // <ul>表示無序列表
+        for (const x of tags) {
+            html += `<li>${x}</li>`; // <li>表示個別項目內容
+        }
+        html += `</ul>`; //包回前面的<ul>
+        document.getElementById("demoS").innerHTML = html;
+      </script>
+
+      <!-- Number:
+       - Integers (numbers without a period or exponent notation) are accurate up to 15 digits.
+       - The maximum number of decimals is 17.
+       - Floating point arithmetic is not always 100% accurate. To solve the problem, multiply and divide helps.
+       - JavaScript will try to convert strings to numbers in all numeric operations(x-y, x*y, x/y).
+       - NaN as "Not a Number". isNaN(x)搜尋非數字
+       - JavaScript interprets numeric constants as hexadecimal三十二進位 (or octal八進位) if they are preceded by 0x.
+        --> 
+
+    <!-- Reminder -->
+    <script>alert("1/19前每天12章!\n上午5章、下午7章!")</script>
+
+</body>
+
+</html>
