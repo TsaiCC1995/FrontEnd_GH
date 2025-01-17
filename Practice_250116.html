@@ -480,8 +480,8 @@
      - search("string"): search a string for a string (or a regular expression)
      - match("string")
     -->
-     <p id="demoP"></p>
-     <script>
+    <p id="demoP"></p>
+    <script>
         let text4 = "The rain in SPAIN stays mainly in the plain";
         const myArr1 = text4.match("ain");
         const myArr2 = text4.match(/ain/);
@@ -490,51 +490,142 @@
         // a global, case-insensitive search
         const myArr4 = text4.match(/ain/gi);
         document.getElementById("demoP").innerHTML =
-        myArr1.length + " " + myArr1 + "<br>" + myArr2.length + " " + myArr2 + "<br>" +
-        myArr3.length + " " + myArr3 + "<br>" + myArr4.length + " " + myArr4 + "<br>";
+            myArr1.length + " " + myArr1 + "<br>" + myArr2.length + " " + myArr2 + "<br>" +
+            myArr3.length + " " + myArr3 + "<br>" + myArr4.length + " " + myArr4 + "<br>";
         // matchAll(string/regular expression) returns an iterator containing the results of matching a string against a string (or a regular expression).
         // includes("string",startpoint) => returning true/false, case sensitive.
         // startsWith("string",startpoint)/endWith("string",endpoint) => returning true if a string begins/ends with a specified value, case sensitive.
-     </script>
+    </script>
 
-     <!-- Template: Interpolation -->
-      <p id="demoQ"></p>
-      <p id="demoR"></p>
-      <p id="demoS"></p>
-      <script>
+    <!-- Template: Interpolation -->
+    <p id="demoQ"></p>
+    <p id="demoR"></p>
+    <p id="demoS"></p>
+    <script>
         // 插入string
         let name1 = "John";
         let name2 = "Max";
         // Template Strings: ${}
         document.getElementById("demoQ").innerHTML = `Welcome ${name1}, ${name2}!`;
-        
+
         // 插入運算
         let price = 10;
         let VAT = 0.25;
-        document.getElementById("demoQ").innerHTML = `Total: ${price * (1+VAT).toFixed(2)}`;
+        document.getElementById("demoQ").innerHTML = `Total: ${price * (1 + VAT).toFixed(2)}`;
 
         // 插入項目標籤
         let header = "Template Strings";
         let tags = ["template strings", "javascript", "es6"];
-        let html = `<h2>${header}</h2><ul>`; // <ul>表示無序列表
+        let html = `<h3>${header}</h3><ul>`; // <ul>表示無序列表
         for (const x of tags) {
             html += `<li>${x}</li>`; // <li>表示個別項目內容
         }
         html += `</ul>`; //包回前面的<ul>
         document.getElementById("demoS").innerHTML = html;
-      </script>
+    </script>
 
-      <!-- Number:
-       - Integers (numbers without a period or exponent notation) are accurate up to 15 digits.
-       - The maximum number of decimals is 17.
-       - Floating point arithmetic is not always 100% accurate. To solve the problem, multiply and divide helps.
-       - JavaScript will try to convert strings to numbers in all numeric operations(x-y, x*y, x/y).
-       - NaN as "Not a Number". isNaN(x)搜尋非數字
-       - JavaScript interprets numeric constants as hexadecimal三十二進位 (or octal八進位) if they are preceded by 0x.
-        --> 
+    <!-- Number:
+      - Integers (numbers without a period or exponent notation) are accurate up to 15 digits.
+      - The maximum number of decimals is 17.
+      - Floating point arithmetic is not always 100% accurate. To solve the problem, multiply and divide helps.
+      - JavaScript will try to convert strings to numbers in all numeric operations(x-y, x*y, x/y).
+      - NaN as "Not a Number". isNaN(x)搜尋非數字
+      - JavaScript interprets numeric constants as hexadecimal三十二進位 (or octal八進位) if they are preceded by 0x.
+      -->
+
+    <!-- Number: Methods
+     - toString(): Returns a number as a string. All JavaScript data types have a valueOf() and a toString() method.
+     - toExponential(保留小數點後幾位): Returns a number written in exponential notation
+     - toFixed(保留小數點後幾位): Returns a number written with a number of decimals
+     - toPrecision(保留幾個數字): Returns a number written with a specified length
+     - valueOf(): Returns a number as a number
+     - Global Methods:
+       - Number(): convert variables to numbers
+       - parseFloat(): Parses its argument and returns a "floating point number" (only the first number is returned).
+       - parseInt(): Parses its argument and returns a "whole number" (only the first number is returned).
+       * Date() method returns the number of milliseconds since 1.1.1970 (86400000 ms/day).
+      -->
+
+    <!-- Array: []
+     - JavaScript variables can be objects. Arrays are special kinds of objects.
+     - Can have variables of different types in the same Array.
+     - array.length: Returns the number of elements
+     - array.sort(): Sorts the array
+     - In JavaScript, arrays always use numbered indexes.  
+    -->
+    <!-- Looping the array -->
+    <p id="demoT"></p>
+    <p id="demoU"></p>
+    <button onclick="addLemon()">Add Lemon</button>
+    <button onclick="funcCar()">Change to Carlist</button>
+    <script>
+        const fruits2 = ["Banana", "Orange", "Apple", "Mango"];
+        let fLen = fruits2.length;
+
+        // 方法一: 
+        let text5 = "<ul>";
+        // for ([initialExpression]; [condition]; [incrementExpression]) {};
+        for (let i = 0; i < fLen; i++) {
+            text5 += "<li>" + fruits2[i] + "</li>";
+        };
+        text5 += "<ul>";
+        document.getElementById("demoT").innerHTML = text5;
+
+        // 方法二: Call a function for each array element
+        let text6 = "<ul>";
+        fruits2.forEach(myFunc1);
+        text6 += "</ul>";
+        document.getElementById("demoU").innerHTML = text6;
+
+        function myFunc1(value) {
+            text6 += "<li>" + value + "</li>";
+        }
+
+        // Add Lemon
+        function addLemon() {
+            // array.push()將某value作為array最後一項加入，array.push()為新array長度
+            fruits2.push("Lemon");
+            document.getElementById("demoU").innerHTML = fruits2;
+        };
+
+        // Nested Objects and Arrays
+        let carList = "";
+        const myObj = {
+            name: "John",
+            age: 30,
+            cars: [
+                { name: "BMW", models: ["320", "X3", "X5"] },
+                { name: "Fiat", models: ["500", "Panda"] }
+            ]
+        };
+        function funcCar() {
+            // for...in 被用來迭代 myObj.cars 陣列中的索引，因此不需要明確使用 myObj.cars.length；myObj.cars.length通常搭配傳統的 for 迴圈使用。
+            for (let i in myObj.cars) {
+                carList += "<h3>" + myObj.cars[i].name + "</h3>";
+                for (let j in myObj.cars[i].models) {
+                    carList += myObj.cars[i].models[j] + "<br>";
+                }
+            }
+            document.getElementById("demoU").innerHTML = carList;
+        }
+    </script>
+
+    <!-- Array: Methods
+     - array.toString(): 將矩陣內容以","分隔並轉為string
+     - array.join(分隔符號): 將矩陣內容以"自訂分隔符號"分隔並轉為string
+     - array.pop()將array最後一項排除；如果有let x = array.pop()的話，x為被排除的內容
+     - array.shift()將array第一項排除；如果有let x = array.shift()的話，x為被排除的內容
+     - array.unshift()將某value作為array第一項加入，array.unshift()為新array長度
+     - Using delete() leaves undefined holes in the array. Use pop() or shift() instead.
+     - concat() method creates a new array by merging (concatenating) existing arrays: array3 = array1.concat(array2,"strings")
+     - copyWithin(copy to #, copy from #) or copyWithin(copy to #, copy from #, to #) method copies array elements to another position in an array.
+       - overwrites the existing values.
+       - does not add items to the array.
+       - does not change the length of the array.
+     -->
 
     <!-- Reminder -->
-    <script>alert("1/19前每天12章!\n上午5章、下午7章!")</script>
+    <!-- <script>alert("1/19前每天12章!\n上午5章、下午7章!")</script> -->
 
 </body>
 
