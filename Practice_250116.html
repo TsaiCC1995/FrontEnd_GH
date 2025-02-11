@@ -610,7 +610,7 @@
         }
     </script>
 
-    <!-- Array: Methods
+    <!-- 250117 Array: Methods
      - array.toString(): 將矩陣內容以","分隔並轉為string
      - array.join(分隔符號): 將矩陣內容以"自訂分隔符號"分隔並轉為string
      - array.pop()將array最後一項排除；如果有let x = array.pop()的話，x為被排除的內容
@@ -622,7 +622,45 @@
        - overwrites the existing values.
        - does not add items to the array.
        - does not change the length of the array.
+     - Array.flat(): creates a new array with sub-array elements concatenated to a specified depth.
+     - splice(added position,how many removed,element1,element2) method can be used to add new items to an array.
+       - array.splice(0, 1): remove elements without leaving "holes" in the array
+     - toSpliced(): creates a new array, keeping the original array unchanged, while the splice() altered the original array.
+     - slice(start, not-included end) method slices out a piece of an array into a new array.
      -->
+    <!-- Array.flatMap(): first maps all elements of an array and then creates a new array by flattening the array (since 2020). -->
+    <p id="demoV"></p>
+    <script>
+        const myArr5 = [1, 2, 3, 4, 5, 6];
+        // => 箭頭函式，x 是箭頭函式的參數，不需要事先定義。
+        // x => [x, x * 10]：對每個元素返回一個陣列，包含原始值和該值的 10 倍。
+        // flatMap() 的作用：將所有返回的子陣列展平成單一的一維陣列。
+        const newArr5 = myArr5.flatMap(x => [x, x * 10]);
+        document.getElementById("demoV").innerHTML = newArr5;
+    </script>
+
+    <!-- Array: Search Method
+     - array.indexOf(item, start): searches for an element value and returns its position. start: Optional, where to start the search. 
+     - array.lastIndexOf(item,start): returns the position of the last occurrence of the specified element. start: given position counting from the end
+     - array.includes(): returning true or false, allowing to check for NaN values.
+     - array.findLastIndex(): finds the "index" of the last element that satisfies a condition.
+    -->
+    <!-- array.find(): the value of the first array element that passes a test function. -->
+    <p id="demoW"></p>
+    <script>
+        const numbers = [4, 9, 16, 25, 29];
+        let first = numbers.find(numFind);
+        // 用箭頭函式的話：
+        // let first = numbers.find(value => value > 18);
+        document.getElementById("demoW").innerHTML = "First number over 18 is " + first;        
+        function numFind(value, index, array) {
+            // index和array實際上可以不用寫，可以試著用：
+            // console.log(`Checking index ${index} with value ${value} in`, array);
+            return value > 18;
+        }
+    </script>
+
+
 
     <!-- Reminder -->
     <!-- <script>alert("1/19前每天12章!\n上午5章、下午7章!")</script> -->

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mistakes Spotting</title>
+    <style>
+        body {
+            /* 清除邊界（上右下左）=> 順時鐘方向 */
+            margin: 0;
+            font-family: Arial;
+        }
+
+        .banner {
+            height: 50px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            display: flex;
+        }
+
+        .logo {
+            height: 100%;
+            width: 200px;
+            /* background: red; */
+        }
+
+        .logo img {
+            width: 100%;
+        }
+
+        .header {
+            width: 100%;
+            text-align: center;
+            /* background: #000; */
+        }
+
+        .images {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .image {
+            height: 300px;
+            padding-left: 10px;
+            padding-right: 10px;
+            stroke-width: 3px;
+            stroke: black;
+        }
+
+        .image img {
+            height: 100%;
+        }
+
+        .options {
+            padding-top: 50px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .btn {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <div class="banner">
+            <div class="logo">
+                <img src="./berryAI.png" alt="banner圖" title="BerryAI">
+            </div>
+            <div class="header">
+                <h3>Mistakes Spoting</h3>
+            </div>
+        </div>
+        <div class="images">
+            <div class="image">
+                <img src="./img1.png" alt="圖1" title="圖1">
+            </div>
+            <div class="image">
+                <img src="./img2.jpg" alt="圖2" title="圖2">
+            </div>
+        </div>
+        <div class="options">
+            <div class="btn">
+                <button id="same">Same</button>
+            </div>
+            <div class="btn">
+                <button id="diff">Different</button>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
