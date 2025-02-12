@@ -610,6 +610,7 @@
         }
     </script>
 
+    <h3>250117 Array</h3>
     <!-- 250117 Array: Methods
      - array.toString(): 將矩陣內容以","分隔並轉為string
      - array.join(分隔符號): 將矩陣內容以"自訂分隔符號"分隔並轉為string
@@ -652,7 +653,7 @@
         let first = numbers.find(numFind);
         // 用箭頭函式的話：
         // let first = numbers.find(value => value > 18);
-        document.getElementById("demoW").innerHTML = "First number over 18 is " + first;        
+        document.getElementById("demoW").innerHTML = "First number over 18 is " + first;
         function numFind(value, index, array) {
             // index和array實際上可以不用寫，可以試著用：
             // console.log(`Checking index ${index} with value ${value} in`, array);
@@ -660,7 +661,142 @@
         }
     </script>
 
+    <!-- Array Sort Method:
+     - array.sort(): sorts an array alphabetically
+     - fruits.reverse(): reverses the elements in an array
+     - array.toSorted(): creates a new array, keeping the original array unchanged, since ES2023
+       用法: sortedArray = array.toSorted()
+     - array.toReversed(): creates a new array, keeping the original array unchanged, since ES2023
+       用法: sortedArray = array.toSorted()
+     -->
+    <!-- Numeric Sort -->
+    <p id="demoX"></p>
+    <button onclick="sortAlpha()">Sort Alphabetically</button>
+    <button onclick="sortNumAsc()">Sort Numerically Ascending</button>
+    <button onclick="sortNumDec()">Sort Numerically Decending</button>
+    <button onclick="numRandom()">Sort Randomly</button>
+    <p>The lowest number is <span id="demoX1"></span>, and the highest is <span id="demoX2"></span>.</p>
+    <p>HM: The lowest number is <span id="demoX3"></span>, and the highest is <span id="demoX4"></span>.</p>
 
+    <script>
+        const points = [40, 100, 1, 5, 25, 10];
+        document.getElementById("demoX").innerHTML = points;
+
+        function sortAlpha() { // sort()是依照字母排列
+            points.sort();
+            document.getElementById("demoX").innerHTML = points;
+        }
+
+        function sortNumAsc() {
+            /* sort()是依照字母排列，如果要排數字需要用Compare Function
+            sort()比較兩值時，將兩值送到compare function，依據回傳的正負值or零決定順序。
+            負值則a在b前，正值則b在a前，值為0則不改動。*/
+            points.sort(function (a, b) { return a - b });
+            document.getElementById("demoX").innerHTML = points;
+        }
+
+        function sortNumDec() {
+            // 相減數值調換可由大到小
+            points.sort(function (a, b) { return b - a });
+            document.getElementById("demoX").innerHTML = points;
+        }
+
+        function numRandom() {
+            // 陣列確實會被重新排列，但某些排列組合出現的機率會較低，要完全公平用Fisher-Yates Shuffle
+            points.sort(function () { return 0.5 - Math.random() });
+            document.getElementById("demoX").innerHTML = points;
+        }
+
+        // 回傳最小值、最大值：
+        // 1. 用Math的Function，對於大陣列效能較差（因為展開運算子會消耗更多記憶體）
+        document.getElementById("demoX1").innerHTML = arrayMin(points);
+        function arrayMin(arr) {
+            // Math.min.apply(null, [1, 2, 3]) is equivalent to Math.min(1, 2, 3).
+            return Math.min.apply(null, arr);
+        }
+        document.getElementById("demoX2").innerHTML = arrayMax(points);
+        function arrayMax(arr) {
+            return Math.max.apply(null, arr);
+        };
+
+        // 2. home-made，適合大陣列，因為不使用額外的記憶體
+        document.getElementById("demoX3").innerHTML = arrayMin2(points);
+        function arrayMin2(arr) {
+            let len = arr.length;
+            let min = Infinity;
+            while (len--) /*相當於 while (len > 0) {len = len - 1;}*/ {
+                if (arr[len] < min) {
+                    min = arr[len];
+                }
+            }
+            return min;
+        }
+
+        document.getElementById("demoX4").innerHTML = arrayMax2(points);
+        function arrayMax2(arr) {
+            let len = arr.length;
+            let max = -Infinity;
+            while (len--) {
+                if (arr[len] > max) {
+                    max = arr[len];
+                }
+            }
+            return max
+        }
+    </script>
+
+    <!-- Sort Object -->
+    <p id="demoY"></p>
+    <button onclick="carsSortByYear()"> Sort by year </button>
+    <button onclick="carsSortByAlpha()" > Sort Alphabetically </button>
+    <script>
+        const carsYear = [
+            { type: "Volvo", year: 2016 },
+            { type: "Saab", year: 2001 },
+            { type: "BMW", year: 2010 }
+        ];
+
+        displayCars();
+
+        function carsSortByYear() {
+            carsYear.sort(function (a, b) { return a.year - b.year });
+            displayCars();
+        }
+
+        function carsSortByAlpha(){
+            carsYear.sort(function(a,b){
+                // 字串比較是基於Unicode字元編碼的，而大寫字母的Unicode值小於小寫字母。
+                let x = a.type.toLowerCase();
+                let y = b.type.toLowerCase();
+                // From ES2019, browsers must use a stable sorting algorithm (with return 0).
+                // 若值相同，要有固定的相對位置，例：年齡相同的兩個人，依年齡排列時順序不變。
+                if (x < y) {return -1;}
+                if (x > y) {return 1;}
+                return 0;
+            });
+            displayCars();
+        }
+
+        function displayCars() {
+            let carList2 = ""; // carList2應該要先在displayCars內部宣告
+            for (let i in carsYear) {
+                carList2 += carsYear[i].type + " " + carsYear[i].year + "<br>";
+            }
+            document.getElementById("demoY").innerHTML = carList2
+        }
+
+        /* function funcCar() {
+            // for...in 被用來迭代 myObj.cars 陣列中的索引，因此不需要明確使用 myObj.cars.length；myObj.cars.length通常搭配傳統的 for 迴圈使用。
+            for (let i in myObj.cars) {
+                carList += "<h3>" + myObj.cars[i].name + "</h3>";
+                for (let j in myObj.cars[i].models) {
+                    carList += myObj.cars[i].models[j] + "<br>";
+                }
+            }
+            document.getElementById("demoU").innerHTML = carList;
+        }*/
+
+    </script>
 
     <!-- Reminder -->
     <!-- <script>alert("1/19前每天12章!\n上午5章、下午7章!")</script> -->
