@@ -784,19 +784,16 @@
             }
             document.getElementById("demoY").innerHTML = carList2
         }
-
-        /* function funcCar() {
-            // for...in 被用來迭代 myObj.cars 陣列中的索引，因此不需要明確使用 myObj.cars.length；myObj.cars.length通常搭配傳統的 for 迴圈使用。
-            for (let i in myObj.cars) {
-                carList += "<h3>" + myObj.cars[i].name + "</h3>";
-                for (let j in myObj.cars[i].models) {
-                    carList += myObj.cars[i].models[j] + "<br>";
-                }
-            }
-            document.getElementById("demoU").innerHTML = carList;
-        }*/
-
     </script>
+
+    <!-- 250213 Array Iteration
+     - array.forEach(): 對每個array element都呼叫一次function
+     - array.map(): 對每個array element都呼叫一次function且"建立新array", does not execute the function for array elements without values.
+     - array.flatMap(): 執行map並扁平化array (since 2020), eg. [1,2,3] => [x, x * 10] => [1,10,2,20,3,30].
+     - array.filter(): creates a new array with array elements that pass a test.
+     - 
+    -->
+     
 
     <!-- Reminder -->
     <!-- <script>alert("1/19前每天12章!\n上午5章、下午7章!")</script> -->

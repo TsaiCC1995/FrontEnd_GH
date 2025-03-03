@@ -5,95 +5,249 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mistakes Spotting</title>
-    <style>
-        body {
-            /* 清除邊界（上右下左）=> 順時鐘方向 */
-            margin: 0;
-            font-family: Arial;
-        }
-
-        .banner {
-            height: 50px;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            display: flex;
-        }
-
-        .logo {
-            height: 100%;
-            width: 200px;
-            /* background: red; */
-        }
-
-        .logo img {
-            width: 100%;
-        }
-
-        .header {
-            width: 100%;
-            text-align: center;
-            /* background: #000; */
-        }
-
-        .images {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-
-        .image {
-            height: 300px;
-            padding-left: 10px;
-            padding-right: 10px;
-            stroke-width: 3px;
-            stroke: black;
-        }
-
-        .image img {
-            height: 100%;
-        }
-
-        .options {
-            padding-top: 50px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-        .btn {
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/bootstrap-4.0.0.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-    <div id="wrap">
-        <div class="banner">
-            <div class="logo">
-                <img src="./berryAI.png" alt="banner圖" title="BerryAI">
-            </div>
-            <div class="header">
-                <h3>Mistakes Spoting</h3>
-            </div>
+    <header class="main-header">
+        <div class="logo">
+            <img src="./berry_images/berry logo.png" class="logo-image" alt="logo">
+            <h1 class="brand-title">Berry AI</h1>
         </div>
-        <div class="images">
-            <div class="image">
-                <img src="./img1.png" alt="圖1" title="圖1">
-            </div>
-            <div class="image">
-                <img src="./img2.jpg" alt="圖2" title="圖2">
-            </div>
-        </div>
-        <div class="options">
-            <div class="btn">
-                <button id="same">Same</button>
-            </div>
-            <div class="btn">
-                <button id="diff">Different</button>
-            </div>
+        <p class="user-greeting">Hi, OOO</p>
+    </header>
 
+    <div class="layout-container">
+        <div class="layout-inner">
+            <nav class="sidebar-nav">
+                <div class="search-container">
+                    <div class="search-wrapper">
+                        <div class="search-input-wrapper"></div>
+                        <img src="https://cdn.builder.io/api/v1/image/assets/8ef8582064cf4ec4b21743f3d4c246ea/c28bdfaded3a8bd2fac5b6e50c088ab52400f4f87ddd02640fb45b7d99d9541a?placeholderIfAbsent=true"
+                            class="search-icon" alt="Search" />
+                    </div>
+                </div>
+
+                <div class="nav-menu">
+                    <div class="nav-section">
+                        <div class="nav-group">
+                            <div class="nav-item">
+                                <span class="nav-arrow"></span>
+                                <span class="nav-text">店家</span>
+                            </div>
+                        </div>
+
+                        <div class="nav-group">
+                            <div class="nav-item">
+                                <span class="nav-arrow"></span>
+                                <span class="nav-text">日期</span>
+                            </div>
+
+                            <div class="nav-item active">
+                                <span class="nav-arrow"></span>
+                                <span class="nav-text">相機A-相機B</span>
+                            </div>
+
+                            <div class="nav-item">
+                                <span class="nav-arrow"></span>
+                                <span class="nav-text">相機B-相機C</span>
+                            </div>
+
+                            <div class="nav-item">
+                                <span class="nav-arrow"></span>
+                                <span class="nav-text">相機C-相機D</span>
+                            </div>
+                        </div>
+
+                        <div class="nav-group">
+                            <div class="nav-item">
+                                <span class="nav-arrow"></span>
+                                <span class="nav-text">日期</span>
+                            </div>
+                        </div>
+
+                        <div class="nav-group">
+                            <div class="nav-item">
+                                <span class="nav-arrow"></span>
+                                <span class="nav-text">店家</span>
+                            </div>
+                        </div>
+
+                        <div class="nav-group">
+                            <div class="nav-item">
+                                <span class="nav-arrow"></span>
+                                <span class="nav-text">店家</span>
+                            </div>
+                        </div>
+
+                        <div class="nav-group">
+                            <div class="nav-item">
+                                <span class="nav-arrow"></span>
+                                <span class="nav-text">店家</span>
+                            </div>
+                        </div>
+
+                        <div class="nav-group">
+                            <div class="nav-item">
+                                <span class="nav-arrow"></span>
+                                <span class="nav-text">店家</span>
+                            </div>
+                        </div>
+
+                        <div class="nav-group">
+                            <div class="nav-item">
+                                <span class="nav-arrow"></span>
+                                <span class="nav-text">店家</span>
+                            </div>
+                        </div>
+
+                        <div class="nav-group">
+                            <div class="nav-item">
+                                <span class="nav-arrow"></span>
+                                <span class="nav-text">店家</span>
+                            </div>
+                        </div>
+
+                        <div class="nav-group">
+                            <div class="nav-item">
+                                <span class="nav-arrow"></span>
+                                <span class="nav-text">店家</span>
+                            </div>
+                        </div>
+
+                        <div class="nav-group">
+                            <div class="nav-item">
+                                <span class="nav-arrow"></span>
+                                <span class="nav-text">店家</span>
+                            </div>
+                        </div>
+
+                        <div class="nav-group">
+                            <div class="nav-item">
+                                <span class="nav-arrow"></span>
+                                <span class="nav-text">店家</span>
+                            </div>
+                        </div>
+
+                        <div class="nav-group">
+                            <div class="nav-item">
+                                <span class="nav-arrow"></span>
+                                <span class="nav-text">店家</span>
+                            </div>
+                        </div>
+
+                        <div class="nav-group">
+                            <div class="nav-item">
+                                <span class="nav-arrow"></span>
+                                <span class="nav-text">店家</span>
+                            </div>
+                        </div>
+
+                        <div class="nav-group">
+                            <div class="nav-item">
+                                <span class="nav-arrow"></span>
+                                <span class="nav-text">店家</span>
+                            </div>
+                        </div>
+
+                        <div class="nav-group">
+                            <div class="nav-item">
+                                <span class="nav-arrow"></span>
+                                <span class="nav-text">店家</span>
+                            </div>
+                        </div>
+
+                        <div class="nav-group">
+                            <div class="nav-item">
+                                <span class="nav-arrow"></span>
+                                <span class="nav-text">店家</span>
+                            </div>
+                        </div>
+
+                        <div class="nav-group">
+                            <div class="nav-item">
+                                <span class="nav-arrow"></span>
+                                <span class="nav-text">店家</span>
+                            </div>
+                        </div>
+
+                        <div class="nav-group">
+                            <div class="nav-item">
+                                <span class="nav-arrow"></span>
+                                <span class="nav-text">店家</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <main class="main-content">
+                <section class="pagination-section">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/8ef8582064cf4ec4b21743f3d4c246ea/ca8873ab77370ba59f99d5a8cd189238d3b9061de0e88c27e3fa53f28f7028e2?placeholderIfAbsent=true"
+                        class="pagination-arrow" alt="Previous" />
+
+                    <div class="pagination-numbers">
+                        <button class="page-number done">1</button>
+                        <button class="page-number done">2</button>
+                        <button class="page-number done">3</button>
+                        <button class="page-number done">4</button>
+                        <button class="page-number done">5</button>
+                        <button class="page-number selected">6</button>
+                        <button class="page-number to-be-done">7</button>
+                        <button class="page-number to-be-done">8</button>
+                        <button class="page-number to-be-done">9</button>
+                        <button class="page-number to-be-done">10</button>
+                        <button class="page-number to-be-done">11</button>
+                        <button class="page-number to-be-done">12</button>
+                        <button class="page-number to-be-done">13</button>
+                        <button class="page-number to-be-done">14</button>
+                        <button class="page-number to-be-done">15</button>
+                        <button class="page-number to-be-done">16</button>
+                        <button class="page-number to-be-done">17</button>
+                        <button class="page-number to-be-done">18</button>
+                        <button class="page-number to-be-done">19</button>
+                        <button class="page-number to-be-done">20</button>
+                    </div>
+
+                    <img src="https://cdn.builder.io/api/v1/image/assets/8ef8582064cf4ec4b21743f3d4c246ea/34ddb2a2c59fdb8dd5ed6f243a2310a5ae48639244d26024b338b3afbdcce85d?placeholderIfAbsent=true"
+                        class="pagination-arrow" alt="Next" />
+                </section>
+
+                <section class="comparison-section">
+                    <h2 class="comparison-title">同一台車?</h2>
+
+                    <div class="comparison-images">
+                        <img src="https://cdn.builder.io/api/v1/image/assets/8ef8582064cf4ec4b21743f3d4c246ea/c7234a1298c688de6837f0ff2682efbc6366f39a71a57578ee00609fe99be07d?placeholderIfAbsent=true"
+                            class="comparison-image" alt="Image 1" />
+                        <img src="https://cdn.builder.io/api/v1/image/assets/8ef8582064cf4ec4b21743f3d4c246ea/750e2b9420381685353afb0c38832af66cd4d513628dbe4f177bf1dc000462b5?placeholderIfAbsent=true"
+                            class="comparison-image" alt="Image 2" />
+                    </div>
+
+                    <div class="comparison-buttons">
+                        <button class="btn-yes">是</button>
+                        <button class="btn-no">否</button>
+                    </div>
+                </section>
+
+                <section class="timeline-section">
+                    <div class="timeline-bar">
+                        <img src="https://cdn.builder.io/api/v1/image/assets/8ef8582064cf4ec4b21743f3d4c246ea/9a92420ca7ad0194cb413193cd95319d0ac1158b91d26dbb3880f8ff5e1df4db?placeholderIfAbsent=true"
+                            class="timeline-track" alt="Timeline" />
+                        <div class="timeline-indicator blue"></div>
+                        <div class="timeline-indicator red"></div>
+                    </div>
+
+                    <div class="timeline-markers">
+                        <time class="timeline-time">10:42:10.2</time>
+                        <time class="timeline-time">10:43:10.2</time>
+                        <time class="timeline-time">10:44:10.2</time>
+                    </div>
+                </section>
+            </main>
         </div>
     </div>
+
 
 
 </body>
